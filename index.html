@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un Recuerdo Especial 🌼💀</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&family=Poppins:wght@400;600&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+    background: #0d021a;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+/* FONDO CON GRADIENTE DE DÍA DE MUERTOS */
+.contenedor-principal {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, #4a1259 0%, #1a052b 60%, #080112 100%);
+    z-index: -2;
+}
+
+/* ELEMENTOS FLOTANTES (CALAVERAS Y CEMPASÚCHIL) */
+.capa-flotantes {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.elemento-flotante {
+    position: absolute;
+    opacity: 0.7;
+    animation: flotar linear infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 153, 0, 0.6));
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(105vh) rotate(0deg) scale(0.6);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-15vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* CARTA FLOTANTE PRINCIPAL */
+.carta-contenedor {
+    width: 100%;
+    max-width: 480px;
+    background: linear-gradient(145deg, #230938, #12031f);
+    border: 3px solid #ff9900;
+    border-radius: 24px;
+    padding: 25px 20px;
+    box-shadow: 
+        0 0 25px rgba(255, 153, 0, 0.4),
+        0 0 50px rgba(186, 85, 211, 0.3),
+        inset 0 0 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: #fff;
+    animation: flotarCarta 4s ease-in-out infinite alternate;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes flotarCarta {
+    0% {
+        transform: translateY(0px) rotate(-0.5deg);
+    }
+    100% {
+        transform: translateY(-12px) rotate(0.5deg);
+    }
+}
+
+/* ADORNOS EN LAS ESQUINAS DE LA CARTA */
+.carta-contenedor::before, .carta-contenedor::after {
+    content: '🌼';
+    position: absolute;
+    font-size: 24px;
+}
+.carta-contenedor::before { top: 10px; left: 12px; }
+.carta-contenedor::after { top: 10px; right: 12px; }
+
+/* TÍTULO Y MENSAJE */
+.titulo {
+    font-family: 'Fredoka One', cursive;
+    color: #ffaa00;
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #ff5500;
+    letter-spacing: 1px;
+}
+
+.mensaje {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #ffe6ff;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px dashed rgba(255, 170, 0, 0.5);
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.mensaje strong {
+    color: #00e5ff;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 22px;
+}
+
+/* MARCO DEL VIDEO */
+.video-contenedor {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid #ff007f;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+    background: #000;
+}
+
+.video-contenedor video {
+    width: 100%;
+    display: block;
+    max-height: 380px;
+    border-radius: 14px;
+    outline: none;
+}
+
+/* DETALLE INFERIOR DE CEMPÁSÚCHIL */
+.pie-carta {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #ffaa00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ADAPTACIÓN A PANTALLAS PEQUEÑAS */
+@media(max-width: 480px){
+    .carta-contenedor {
+        padding: 20px 15px;
+    }
+    .titulo { font-size: 19px; }
+    .mensaje { font-size: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor-principal"></div>
+
+<!-- ELEMENTOS FLOTANTES DE DÍA DE MUERTOS -->
+<div class="capa-flotantes" id="flotantes"></div>
+
+<!-- CARTA FLOTANTE -->
+<div class="carta-contenedor">
+
+    <div class="titulo">
+        ✨ UN RECUERDO PARA SIEMPRE ✨
+    </div>
+
+    <!-- MENSAJE DE LA CARTA -->
+    <div class="mensaje">
+        <strong>💀🌼</strong>
+        Hay recuerdos que trascienden el tiempo y se quedan guardados para siempre. Te dejo este video especial hecho con mucho cariño para ti. 🧡✨
+    </div>
+
+    <!-- REPRODUCTOR DE VIDEO -->
+    <div class="video-contenedor">
+        <video controls poster="">
+            <!-- Reemplaza "video.mp4" con el nombre de tu archivo de video subido a GitHub -->
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+    </div>
+
+    <div class="pie-carta">
+        💀 🌼 Recuerda que el amor nunca muere 🌼 💀
+    </div>
+
+</div>
+
+<script>
+/* GENERADOR DE CALAVERAS Y FLORES FLOTANTES */
+const contenedorFlotantes = document.getElementById('flotantes');
+
+// Iconos estilo Día de Muertos / Coco
+const iconos = ['💀', '🌼', '💀', '🌸', '🎸', '🕯️', '✨'];
+
+for (let i = 0; i < 28; i++) {
+    const el = document.createElement('div');
+    el.className = 'elemento-flotante';
+    
+    // Seleccionar icono al azar
+    el.innerHTML = iconos[Math.floor(Math.random() * iconos.length)];
+    
+    // Posición y tamaño aleatorio
+    el.style.left = Math.random() * 100 + '%';
+    el.style.fontSize = (18 + Math.random() * 22) + 'px';
+    
+    // Animación con tiempo y retraso variado
+    el.style.animationDuration = (6 + Math.random() * 8) + 's';
+    el.style.animationDelay = (-Math.random() * 10) + 's';
+    
+    contenedorFlotantes.appendChild(el);
+}
+</script>
+
+</body>
+  </html>
+          
